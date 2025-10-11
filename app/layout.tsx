@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Stock MarketPulse",
+  title: "MarketPulse",
   description: "Follow up on real-time stock market prices, personalized alerts, and access detailed company insights",
 };
 
