@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25b6c9e1-a6fd-477d-84c0-8f4ca172aa19" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hooks/useTradingViewWidget.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/forms/ContrySelectField.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/forms/FooterLink.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/forms/SelectField.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +46,7 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;homepage&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;auth&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
@@ -112,6 +114,11 @@
       <workItem from="1760717998674" duration="300000" />
       <workItem from="1760718337977" duration="2026000" />
       <workItem from="1760720400145" duration="3773000" />
+      <workItem from="1760774520553" duration="296000" />
+      <workItem from="1760774847797" duration="14000" />
+      <workItem from="1760774876311" duration="6027000" />
+      <workItem from="1760880818683" duration="283000" />
+      <workItem from="1761040661335" duration="8245000" />
     </task>
     <servers />
   </component>
