@@ -4,11 +4,19 @@ import InputField from "@/components/forms/InputField";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import SelectField from "@/components/forms/SelectField";
-import {INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS} from "@/lib/constants";
-import {CountrySelectField} from "@/components/forms/ContrySelectField";
+import {
+  INVESTMENT_GOALS,
+  PREFERRED_INDUSTRIES,
+  RISK_TOLERANCE_OPTIONS,
+} from "@/lib/constants";
+import { CountrySelectField } from "@/components/forms/ContrySelectField";
 import FooterLink from "@/components/forms/FooterLink";
+import { signUpWithEmail } from "@/lib/actions/auth.actions";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const SignUp = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -28,9 +36,15 @@ const SignUp = () => {
   });
   const onSubmit = async (data: SignUpFormData) => {
     try {
-      console.log(data);
+      // signUpWithEmail server action
+      const result = await signUpWithEmail(data);
+      if (result.success) router.push("/");
     } catch (e) {
       console.error(e);
+      toast.error("Sign up failed", {
+        description:
+          e instanceof Error ? e.message : "Failed to create an accont",
+      });
     }
   };
   return (
@@ -45,55 +59,62 @@ const SignUp = () => {
           error={errors.fullName}
           validation={{ required: "Full name is required", minLength: 2 }}
         />
-          <InputField
-              name="email"
-              label="Email"
-              placeholder="Enter your email address"
-              register={register}
-              error={errors.email}
-              validation={{ required: "Email is required", pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Email is required" }}
-          />
-          <InputField
-              name="password"
-              label="Password"
-              type="password"
-              placeholder="Enter your password"
-              register={register}
-              error={errors.password}
-              validation={{ required: "Password is required", minLength: 6 }}
-          />
-          <CountrySelectField
-              name="country"
-              label="Country"
-              control={control}
-              error={errors.country}
-              required
-          />
+        <InputField
+          name="email"
+          label="Email"
+          placeholder="Enter your email address"
+          register={register}
+          error={errors.email}
+          validation={{
+            required: "Email is required",
+            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            message: "Email is required",
+          }}
+        />
+        <InputField
+          name="password"
+          label="Password"
+          type="password"
+          placeholder="Enter your password"
+          register={register}
+          error={errors.password}
+          validation={{ required: "Password is required", minLength: 6 }}
+        />
+        <CountrySelectField
+          name="country"
+          label="Country"
+          control={control}
+          error={errors.country}
+          required
+        />
 
-          <SelectField
-               name="investmentGoals"
-               label="Investment Goals"
-               placeholder="Select your investment goal"
-               options={INVESTMENT_GOALS}
-               control={control}
-               error={errors.investmentGoals}
-               required/>
-          <SelectField
-              name="riskTolerance"
-              label="Risk Tolerance"
-              placeholder="Select risk level"
-              options={RISK_TOLERANCE_OPTIONS}
-              control={control}
-              error={errors.riskTolerance}
-              required/>
-          <SelectField
-              name="preferredIndustry"
-              label="Preferred Industry"
-              placeholder="Select your preferred Industry"
-              options={PREFERRED_INDUSTRIES}
-              control={control}
-              error={errors.preferredIndustry}
-              required/>
+        <SelectField
+          name="investmentGoals"
+          label="Investment Goals"
+          placeholder="Select your investment goal"
+          options={INVESTMENT_GOALS}
+          control={control}
+          error={errors.investmentGoals}
+          required
+        />
+        <SelectField
+          name="riskTolerance"
+          label="Risk Tolerance"
+          placeholder="Select risk level"
+          options={RISK_TOLERANCE_OPTIONS}
+          control={control}
+          error={errors.riskTolerance}
+          required
+        />
+        <SelectField
+          name="preferredIndustry"
+          label="Preferred Industry"
+          placeholder="Select your preferred Industry"
+          options={PREFERRED_INDUSTRIES}
+          control={control}
+          error={errors.preferredIndustry}
+          required
+        />
 
         <Button
           type="submit"
@@ -103,7 +124,11 @@ const SignUp = () => {
           {isSubmitting ? "Creating Account" : "Start Your Investing Journey"}
         </Button>
 
-          <FooterLink text="Already have an account" linkText="Sign in" href="/sign-in"/>
+        <FooterLink
+          text="Already have an account"
+          linkText="Sign in"
+          href="/sign-in"
+        />
       </form>
     </>
   );
