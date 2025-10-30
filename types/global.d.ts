@@ -71,6 +71,7 @@ declare global {
     id: string;
     name: string;
     email: string;
+    isSubscribed?: boolean;
   };
 
   type Stock = {
